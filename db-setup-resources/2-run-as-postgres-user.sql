@@ -1,0 +1,17 @@
+CREATE ROLE camunda WITH 
+	SUPERUSER
+	CREATEDB
+	CREATEROLE
+	INHERIT
+	LOGIN
+	NOREPLICATION
+	NOBYPASSRLS
+	PASSWORD 'Camunda1';
+
+CREATE TABLESPACE camunda OWNER camunda LOCATION '/var/lib/postgresql/user_data/tblspc_camunda';
+	
+CREATE DATABASE camunda WITH
+	OWNER camunda
+	TABLESPACE camunda;
+
+

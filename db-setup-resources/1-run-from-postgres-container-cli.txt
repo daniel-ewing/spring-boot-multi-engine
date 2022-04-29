@@ -1,0 +1,8 @@
+cd /var/lib/postgresql
+mkdir user_data
+chown postgres:postgres user_data
+chmod 700 user_data
+cd user_data
+mkdir tblspc_camunda
+chown postgres:postgres tblspc_camunda
+chmod 700 tblspc_camunda

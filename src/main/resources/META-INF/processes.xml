@@ -1,0 +1,30 @@
+<process-application xmlns="http://www.camunda.org/schema/1.0/ProcessApplication" >
+
+    <process-archive name="default-process-application">
+        <process-engine>default</process-engine>
+        <properties>
+            <property name="isDeleteUponUndeploy">false</property>
+            <property name="isScanForProcessDefinitions">true</property>
+            <property name="resourceRootPath">classpath:tenants/default</property>
+        </properties>
+    </process-archive>
+
+    <process-archive name="tenant1-process-application">
+        <process-engine>tenant1</process-engine>
+        <properties>
+            <property name="isDeleteUponUndeploy">false</property>
+            <property name="isScanForProcessDefinitions">true</property>
+            <property name="resourceRootPath">classpath:tenants/tenant1/</property>
+        </properties>
+    </process-archive>
+
+    <process-archive name="tenant2-process-application">
+        <process-engine>tenant2</process-engine>
+        <properties>
+            <property name="isDeleteUponUndeploy">false</property>
+            <property name="isScanForProcessDefinitions">true</property>
+            <property name="resourceRootPath">classpath:tenants/tenant2/</property>
+        </properties>
+    </process-archive>
+
+</process-application>

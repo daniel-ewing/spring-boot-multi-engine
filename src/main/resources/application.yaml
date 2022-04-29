@@ -1,0 +1,108 @@
+default:
+  bpm:
+    authorizationEnabled: true
+    databaseSchema: "camunda"
+    databaseTablePrefix: "camunda."
+    databaseSchemaUpdate: true
+    historyCleanupBatchWindowStartTime: "01:00"
+    historyCleanupBatchWindowEndTime: "06:00"
+    historyTimeToLive: "P30D"
+    initializeTelemetry: false
+    jobExecutorActivate: true
+    jobExecutorDeploymentAware: true
+    history: full
+    processEngineName: "default"
+    telemetryReporterActivate: false
+
+tenant1:
+  bpm:
+    authorizationEnabled: true
+    databaseSchema: "tenant1"
+    databaseTablePrefix: "tenant1."
+    databaseSchemaUpdate: true
+    historyCleanupBatchWindowStartTime: "01:00"
+    historyCleanupBatchWindowEndTime: "06:00"
+    historyTimeToLive: "P30D"
+    initializeTelemetry: false
+    jobExecutorActivate: true
+    jobExecutorDeploymentAware: true
+    history: full
+    processEngineName: "tenant1"
+    telemetryReporterActivate: false
+
+tenant2:
+  bpm:
+    authorizationEnabled: true
+    databaseSchema: "tenant2"
+    databaseTablePrefix: "tenant2."
+    databaseSchemaUpdate: true
+    historyCleanupBatchWindowStartTime: "01:00"
+    historyCleanupBatchWindowEndTime: "06:00"
+    historyTimeToLive: "P30D"
+    initializeTelemetry: false
+    jobExecutorActivate: true
+    jobExecutorDeploymentAware: true
+    history: full
+    processEngineName: "tenant2"
+    telemetryReporterActivate: false
+
+server:
+  port : 8080
+
+
+## H2 datasource
+#camunda:
+#  datasource:
+#    jdbcUrl: jdbc:h2:./camunda-db-7.17.0;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;AUTO_SERVER=TRUE
+#    jdbcUsername: sa
+#    jdbcPassword: sa
+
+
+# PostgreSQL datasource
+camunda:
+  datasource:
+    jdbcUrl: jdbc:postgresql://database.camunda.local:5432/camunda
+    driverClassName: org.postgresql.Driver
+    username: camunda
+    password: Camunda1
+
+## MS SQL Server datasource
+#camunda:
+#  datasource:
+#    jdbcUrl: jdbc:sqlserver://localhost:1417;databaseName=camunda_cs
+#    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+#    username: sa
+#    password: Camunda1
+
+## Oracle datasource
+#camunda:
+#  datasource:
+#    jdbcUrl: jdbc:oracle:thin:@localhost:1521/ORCLPDB1
+#    driverClassName: oracle.jdbc.OracleDriver
+#    username: camunda
+#    password: Camunda1
+
+# Logging Settings
+logging:
+  file:
+    path: ./logs           # specify a path to write to file, otherwise it defaults to the console.
+  level:
+    # Camunda Loggers
+    org.camunda: INFO     # WARNING!! THIS NAMESPACE WILL OUTPUT ALL CAMUNDA LOGS AT THE SPECIFIED LEVEL.
+    org.example.spring.boot.multi.engine: DEBUG
+#    org.camunda.bpm.engine.cmd: DEBUG
+#    org.camunda.bpm.engine.impl.persistence.entity: DEBUG
+#    org.camunda.bpm.engine.impl.batch.BatchEntity: DEBUG
+#    org.camunda.bpm.engine.impl.persistence.entity.ExecutionEntity: DEBUG
+#    org.camunda.bpm.engine.impl.persistence.entity.IncidentEntity: DEBUG
+#    org.camunda.bpm.engine.impl.persistence.entity.JobEntity: DEBUG
+#    org.camunda.bpm.engine.impl.persistence.entity.VariableInstanceEntity: DEBUG
+#    org.camunda.bpm.engine.jobexecutor: DEBUG
+#    org.camunda.bpm.engine.persistence: DEBUG
+#    org.camunda.bpm.engine.tx: DEBUG
+#    # Common Camunda Dependencies
+#    org.apache.ibatis: INFO
+#    # Add Catalina logging
+#    org.apache.catalina: INFO
+#    # Add Tomcat logging
+#    org.apache.tomcat: INFO
